@@ -1,0 +1,433 @@
+﻿<Window x:Class="Komis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Komis"
+        mc:Ignorable="d"
+        Title="Ubezpieczalnia" Height="1050" Width="1400"
+>
+
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="F" Command="{Binding NowaFakturaCommand}"/>
+        <KeyBinding Gesture="Ctrl+Alt+F" Command="{Binding FakturyCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="K" Command="{Binding NowyKontrahentCommand}"/>
+        <KeyBinding Gesture="Ctrl+Alt+K" Command="{Binding WszyscyKontrahenciCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="S"  Command="{Binding NowySamochodCommand}"/>
+        <KeyBinding Gesture="Ctrl+Alt+S" Command="{Binding SamochodyCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="U"  Command="{Binding NoweUbezpieczenieCommand}"/>
+        <KeyBinding Gesture="Ctrl+Alt+U" Command="{Binding WszystkieUbezpieczeniaCommand}"/>
+    </Window.InputBindings>
+    
+    
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindowResources.xaml"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Menu Grid.Row="0" Grid.Column="0" Style="{StaticResource MenuGlowne}">>
+
+                <MenuItem Header="_Plik">
+                    <MenuItem Header="_Nowy" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/nowy.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Otworz" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/otworz.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Zapisz" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/zapisz.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Zapisz Jako" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/zapisz_jako.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Export" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/export-pdf.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Ustawienia" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/ustawienia.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Wyjscie" Command="{Binding ZakonczCommand}" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/export-kolor.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Edycja ">
+                    <MenuItem Header="Cofnij" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/cofnij.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Na Przod" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/nastepny.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Odswierz" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/odswierz.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Wytnij" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/wytnij.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="kopiuj" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/kopiuj.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="wklej" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/wklej.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="CalyEkran" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/caly_ekran.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Motoryzacja" >
+                    <MenuItem Header="Pojazdy" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/pojazdy.png"/>
+                        </MenuItem.Icon>
+
+                        <MenuItem Header="Salon Kolekcja" Command="{Binding SamochodyCommand}" Style="{StaticResource MenuItem}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Icons/salon.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Dodawanie" Command="{Binding NowySamochodCommand}" Style="{StaticResource MenuItem}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Icons/dodanie_auta.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Ubezpieczenia">
+                    <MenuItem Header="Wszystkie Ubezpieczenia" Command="{Binding WszystkieUbezpieczeniaCommand}" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/shield.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodawanie Ubezpieczenia" Command="{Binding NoweUbezpieczenieCommand}" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/insurance-one.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Nowosci" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/nowosci.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Ksiegowosc"  >
+                    <MenuItem Header="Faktury" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/faktury.png"/>
+                        </MenuItem.Icon>
+                        <MenuItem Header="Wszystkie" Command="{Binding FakturyCommand}" Style="{StaticResource MenuItem}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Icons/ksiegowosc.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Dodawanie" Command="{Binding NowaFakturaCommand}" Style="{StaticResource MenuItem}">
+                            <MenuItem.Icon>
+                                <Image Source="/Views/Icons/dodawanie.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="K_ontrahenci" Style="{StaticResource MenuItem}">
+                    <MenuItem Header="Wszyscy" Command="{Binding WszyscyKontrahenciCommand}" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/klienci.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Dodawanie" Command="{Binding NowyKontrahentCommand}" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/dodawanie.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Pomo_c">
+                    <MenuItem Header="Wersja Programu" IsCheckable="True" IsChecked="False" Click="MenuVersion_Click" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/wersja.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Tworcy"  IsCheckable="True" IsChecked="False" Click="MenuTworcy_Click" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/tworcy.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="FAQ" Click="MenuFAQ_Click" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/faq.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Help"  Click="MenuHelp_Click" Style="{StaticResource MenuItem}">
+                        <MenuItem.Icon>
+                            <Image Source="/Views/Icons/help.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <ToolBar Grid.Row="1" Grid.Column="0" Background="#53565B">
+
+                <ToggleButton Width="32" Height="32" >
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/baza.png"/>
+                    </ToggleButton.Background>
+                    <Image Source="/Views/Icons/baza.png"/>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2"  >
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/cofnij.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/nastepny.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2" >
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/kopiuj.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/wklej.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/sciagnij.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/nowy.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/otworz.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/komputer.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <Separator/>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/email.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/kalendarz.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/wyniki.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/dom.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/odswierz.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/wifi.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowaFakturaCommand}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/ksiegowosc.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding NowyKontrahentCommand}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/klienci.png" />
+                         
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2"  Command="{Binding NowySamochodCommand}">
+
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/cars-white.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/ustawienia.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2" Click="MenuHelp_Click">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/help.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+                <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ZakonczCommand}">
+                    <ToggleButton.Background>
+                        <ImageBrush ImageSource="/Views/Icons/exit.png"/>
+                    </ToggleButton.Background>
+                </ToggleButton>
+            </ToolBar>
+
+
+            <Ribbon  Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Background="Azure" Foreground="DarkBlue">
+                <Ribbon.HelpPaneContent>
+                    <RibbonButton KeyTip="H" SmallImageSource="/Views/Icons/ustawienia.png" />
+                </Ribbon.HelpPaneContent>
+                <RibbonTab TabIndex="0" Header="Przybornik" Foreground="DarkBlue">
+                    <RibbonGroup Header="Schowek">
+                        <RibbonButton Label="Schowek" LargeImageSource="/Views/Icons/clipboard.png" />
+                        <RibbonButton Label="Kopiuj" SmallImageSource="/Views/Icons/kopiuj.png" />
+                        <RibbonButton Label="Wklej" SmallImageSource="/Views/Icons/wklej.png" />
+                        <RibbonButton Label="Wytnij" SmallImageSource="/Views/Icons/wytnij.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Plik">
+                        <RibbonButton Label="Otwórz" SmallImageSource="/Views/Icons/otworz.png" />
+                        <RibbonButton Label="Zapisz" SmallImageSource="/Views/Icons/zapisz.png" />
+                        <RibbonButton Label="Zapisz jako.." SmallImageSource="/Views/Icons/zapisz_jako.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Drukarka">
+                        <RibbonRadioButton Label="Drukuj tę stronę" SmallImageSource="/Views/Icons/printer.png" />
+                        <RibbonRadioButton Label="Drukuj wszystko" SmallImageSource="/Views/Icons/printer.png" />
+                        <RibbonButton Label="Sygnal wifi" LargeImageSource="/Views/Icons/wifi.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Mail">
+                        <RibbonButton Label="Skrzynka Mailowa" LargeImageSource="/Views/Icons/email.png" />
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab TabIndex="1" Header="Komis">
+                    <RibbonGroup Header="Pojazdy">
+                        <RibbonButton Label="Lista Pojazdow" LargeImageSource="/Views/Icons/cars-white.png" Command="{Binding NowySamochodCommand}"/>
+                        <RibbonButton Label="Dodaj" SmallImageSource="/Views/Icons/dodawanie.png" Command="{Binding SamochodyCommand}"/>
+                        <RibbonButton Label="Usuń" SmallImageSource="/Views/Icons/delete.png" />
+                        <RibbonButton Label="Modyfikuj" SmallImageSource="/Views/Icons/modify.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Pracownicy">
+                        <RibbonButton Label="Lista pracowników" LargeImageSource="/Views/Icons/klienci.png" />
+                        <RibbonMenuButton Label="Pracownik.."  LargeImageSource="/Views/Icons/klient-kolor.png" >
+                            <RibbonButton Label="Stwórz" LargeImageSource="/Views/Icons/klienci-kolor.png" />
+                            <RibbonButton Label="Usuń" LargeImageSource="/Views/Icons/delete.png" />
+                            <RibbonButton Label="Modyfikuj" LargeImageSource="/Views/Icons/modify.png" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Menadżerowie">
+                        <RibbonRadioButton Label="Sprzedawca 1." SmallImageSource="/Views/Icons/medals-kolor.png" />
+                        <RibbonRadioButton Label="Ksiegowy 2." SmallImageSource="/Views/Icons/ksiegowosc.png" />
+                        <RibbonRadioButton Label="Menadżer 3." SmallImageSource="/Views/Icons/tworcy.png" />
+                        <RibbonButton Label="Lista Pracowników" LargeImageSource="/Views/Icons/nowy.png" />
+                        <RibbonButton Label="Plan Pracy " LargeImageSource="/Views/Icons/calendar.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Mail">
+                        <RibbonButton Label="Skrzynka Mailowa" LargeImageSource="/Views/Icons/email.png" />
+                    </RibbonGroup>
+                </RibbonTab>
+                <RibbonTab TabIndex="2" Header="Ksiegowosc" IsSelected="True">
+                    <RibbonGroup Header="Faktury">
+                        <RibbonButton Label="Wszystkie Faktury" LargeImageSource="/Views/Icons/ksiegowosc.png" Command="{Binding FakturyCommand}"/>
+                        <RibbonButton Label="Stwórz" SmallImageSource="/Views/Icons/dodawanie.png" Command="{Binding NowaFakturaCommand}"/>
+                        <RibbonButton Label="Usuń" SmallImageSource="/Views/Icons/delete.png" />
+                        <RibbonButton Label="Modyfikuj" SmallImageSource="/Views/Icons/modify.png" />
+                    </RibbonGroup>
+                    <RibbonGroup Header="Ubezpieczenia">
+                        <RibbonButton Label="Drukuj" LargeImageSource="/Views/Icons/printer.png" />
+                        <RibbonButton Label="Lista Ubezpieczen" LargeImageSource="/Views/Icons/nowosci.png" Command="{Binding WszystkieUbezpieczeniaCommand}"/>
+                        <RibbonMenuButton Label="Operacje na Ubezpieczeniach" LargeImageSource="/Views/Icons/medals-kolor.png">
+                            <RibbonButton Label="Stwórz" LargeImageSource="/Views/Icons/medal-kolor.png" Command="{Binding NoweUbezpieczenieCommand}"/>
+                            <RibbonButton Label="Usuń" LargeImageSource="/Views/Icons/delete.png" />
+                            <RibbonButton Label="Modyfikuj" LargeImageSource="/Views/Icons/modify.png" />
+                        </RibbonMenuButton>
+                    </RibbonGroup>
+                    <RibbonGroup Header="Mail">
+                        <RibbonButton Label="Skrzynka Mailowa" LargeImageSource="/Views/Icons/email.png" />
+                    </RibbonGroup>
+                </RibbonTab>
+                <Ribbon.ApplicationMenu>
+                    <RibbonApplicationMenu KeyTip="F" Background="Gray">
+                        <RibbonApplicationMenuItem Header="Zaloguj" ImageSource="/Views/Icons/login.png" />
+                        <RibbonApplicationMenuItem Header="Wyloguj" ImageSource="/Views/Icons/logout.png" />
+                        <RibbonApplicationMenuItem  Header="Preferencje" ImageSource="/Views/Icons/ustawienia.png" />
+                        <RibbonApplicationMenuItem Header="Zamknij" ImageSource="/Views/Icons/wyjscie.png" Command="{Binding ZakonczCommand}"/>
+                    </RibbonApplicationMenu>
+                </Ribbon.ApplicationMenu>
+            </Ribbon>
+            <Grid Grid.Row="3" Margin="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0">
+                    <HeaderedContentControl Header="Operacje" Background="DarkBlue"
+                                            Content="{Binding Path=Commands}"
+                                            ContentTemplate="{StaticResource NewMenuTemplate}" 
+                                            Style="{StaticResource MainHCCStyle}"/>
+                </Border>
+                <Border Grid.Column="1">
+                    <HeaderedContentControl Header="Przestrzeń robocza" Background="Aqua"
+                                            Content="{Binding Path=Workspaces}"
+                                            ContentTemplate="{StaticResource WorkspacesTemplate}"
+                                            Style="{StaticResource MainHCCStyle}"/>
+                </Border>
+            </Grid>
+            <StatusBar Grid.Row="4">
+                50%
+                <StatusBarItem >
+                    <ProgressBar Value="50" Width="150" Height="16" />
+                </StatusBarItem> Ładowanie...
+                <StatusBarItem HorizontalAlignment="Right">
+                    <TextBlock>Stworzono przez: Krzysztof Gajdosz</TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+        </Grid>
+    </Grid>
+</Window>
+ 
+
+
+
+
+
+ 

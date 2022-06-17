@@ -1,0 +1,168 @@
+﻿<UserControl x:Class="Komis.Views.NowySamochodView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Komis.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source=" StyleZakladekResources.xaml"/>
+
+    </UserControl.Resources>
+    
+    <Grid Background="#53565B">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Expander Header="Ogolne" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="520"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width=" 100"/>
+                    <ColumnDefinition Width=" 70"/>
+                    <ColumnDefinition Width=" 70"/>
+                    <ColumnDefinition Width=" 100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Model" Style="{StaticResource DarkLabel}"/>
+
+                <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" Text="" Style="{StaticResource TextBoxFirma}" Grid.ColumnSpan="4"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Typ" Style="{StaticResource DarkLabel}"/>
+                </Grid>
+                <ComboBox Grid.Row="0" Grid.Column="6" Style="{StaticResource ComboBoxStandardowy}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Marka" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxFirma}" Grid.ColumnSpan="6"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Rodzaj paliwa" Style="{StaticResource DarkLabel}"/>
+                <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxFirma}"/>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"/>
+                </Grid>
+
+                <Label  Grid.Row="3" Grid.Column="0" Content="Numer Seryjny:" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Style="{StaticResource TextBoxFirma}"/>
+                <Label  Grid.Row="3" Grid.Column="4" Content ="Stawka Vat" Style="{StaticResource DarkLabel}"/>
+                <Label  Grid.Row="3" Grid.Column="5" Content ="Wartosc" Style="{StaticResource DarkLabel}"/>
+                <ComboBox Grid.Row="3" Grid.Column="6" Style="{StaticResource ComboBoxStandardowy}"/>
+                <Label  Grid.Row="4" Grid.Column="0" Content ="Rok produkcji" Style="{StaticResource DarkLabel}"/>
+                <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"/>
+                <Label Grid.Row="4" Grid.Column="2" Content="Kolor:" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="4" Grid.Column="3" Style="{StaticResource TextBoxFirma}" />
+                <Label Grid.Row="4" Grid.Column="5" Content="Znizka:"  Style="{StaticResource DarkLabel}"/>
+                <ComboBox Grid.Row="4" Grid.Column="6" Style="{StaticResource ComboBoxStandardowy}" />
+                <Label Grid.Row="5" Grid.Column="5" Content="Depozyt"  Style="{StaticResource DarkLabel}"/>
+                <ComboBox Grid.Row="5" Grid.Column="6" Style="{StaticResource ComboBoxStandardowy}" />
+                <TextBox Grid.Row="6"  Grid.Column="0" TextWrapping="Wrap" Text="Zastosowania stawki VAT" Style="{StaticResource TextBoxFirma}"/>
+                <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan =" 6" Style="{StaticResource TextBoxFirma}" />
+            </Grid>
+        </Expander>
+        <Expander Grid.Row="1" Header="Ceny" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+            
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="560"/>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Data Sprzedazy" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxFirma}" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Historia Pojazdu:" Style="{StaticResource DarkLabel}"/>
+                <DataGrid Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Ceny}" AutoGenerateColumns="True">
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn Header="Data od" Width="100" />
+                        <DataGridTextColumn Header ="Data Do" Binding ="{Binding Path = Priorytet, StringFormat=N}" />
+                        <DataGridCheckBoxColumn Header ="Bezwypadkowy"/>
+                        <DataGridTextColumn Header ="Cena Zakupu" Binding ="{Binding Path = Netto, StringFormat=C}" />
+                        <DataGridTextColumn Header ="Cena Sprzedarzy" Binding ="{Binding Path = Brutto, StringFormat=C}" />
+                        <DataGridCheckBoxColumn Header ="Czy Przeglad Wazny"/>
+                        <DataGridCheckBoxColumn Header ="Czy Ubezpieczony"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+             
+            </Grid>
+
+        </Expander>
+        <Expander Grid.Row="3" Header="Ceny" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="30"/>
+                    <RowDefinition Height ="30"/>
+                    <RowDefinition Height ="60"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="493"/>
+                   
+
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Ilosc" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxFirma}" Text="{Binding Ilosc}"/>
+                <Label Grid.Row="0" Grid.Column="2" Content="Model" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxFirma}" />
+                <Label Grid.Row="0" Grid.Column="4" Content="Marka" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource TextBoxFirma}" />
+
+                <Label Grid.Row="1" Grid.Column="2" Content="Cena" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxFirma}" Text="{Binding Kwota}"/>
+                <Label Grid.Row="1" Grid.Column="4" Content="Znizka" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxFirma}" Text="{Binding Znizka}"/>
+                <Label Grid.Row="1" Grid.Column="6" Content="Brutto" Style="{StaticResource DarkLabel}"/>
+                <TextBox Grid.Row="1" Grid.Column="7" Style="{StaticResource TextBoxFirma}" Text="{Binding CenaBrutto}"/>
+
+                <Button Grid.Row="2" Grid.Column="7" Style="{StaticResource ButtonStandardowy}">Zapisz
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Row="2" Grid.Column="7" Style="{StaticResource ButtonStandardowy3}" Command="{Binding ObliczCommand}">
+                Oblicz
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+        </Expander>
+
+    </Grid>
+</UserControl>

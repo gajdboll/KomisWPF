@@ -1,0 +1,299 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\24dp.png" />
+    <None Remove="Views\Icons\baza.png" />
+    <None Remove="Views\Icons\books-black.png" />
+    <None Remove="Views\Icons\books-kolor.png" />
+    <None Remove="Views\Icons\calendar.png" />
+    <None Remove="Views\Icons\caly_ekran.png" />
+    <None Remove="Views\Icons\cars-back.png" />
+    <None Remove="Views\Icons\cars-white.png" />
+    <None Remove="Views\Icons\clipboard.png" />
+    <None Remove="Views\Icons\cofnij.png" />
+    <None Remove="Views\Icons\delete.png" />
+    <None Remove="Views\Icons\docs-black.png" />
+    <None Remove="Views\Icons\docs-kolor.png" />
+    <None Remove="Views\Icons\dodaj_insurance.png" />
+    <None Remove="Views\Icons\dodanie_auta.png" />
+    <None Remove="Views\Icons\dodawanie.png" />
+    <None Remove="Views\Icons\dom.png" />
+    <None Remove="Views\Icons\download.png" />
+    <None Remove="Views\Icons\email.png" />
+    <None Remove="Views\Icons\exit.png" />
+    <None Remove="Views\Icons\export-kolor.png" />
+    <None Remove="Views\Icons\export-pdf.png" />
+    <None Remove="Views\Icons\export.png" />
+    <None Remove="Views\Icons\faktury.png" />
+    <None Remove="Views\Icons\faq.png" />
+    <None Remove="Views\Icons\help.png" />
+    <None Remove="Views\Icons\insurance-one.png" />
+    <None Remove="Views\Icons\insurance.png" />
+    <None Remove="Views\Icons\kalendarz.png" />
+    <None Remove="Views\Icons\klienci-black.png" />
+    <None Remove="Views\Icons\klienci-kolor.png" />
+    <None Remove="Views\Icons\klienci.png" />
+    <None Remove="Views\Icons\klient-black.png" />
+    <None Remove="Views\Icons\klient-kolor.png" />
+    <None Remove="Views\Icons\komputer.png" />
+    <None Remove="Views\Icons\kopiuj.png" />
+    <None Remove="Views\Icons\ksiegowosc.png" />
+    <None Remove="Views\Icons\login.png" />
+    <None Remove="Views\Icons\logout.png" />
+    <None Remove="Views\Icons\medal-black.png" />
+    <None Remove="Views\Icons\medal-kolor.png" />
+    <None Remove="Views\Icons\medals-black.png" />
+    <None Remove="Views\Icons\medals-kolor.png" />
+    <None Remove="Views\Icons\modify.png" />
+    <None Remove="Views\Icons\nastepny.png" />
+    <None Remove="Views\Icons\nowosci.png" />
+    <None Remove="Views\Icons\nowy.png" />
+    <None Remove="Views\Icons\odswierz.png" />
+    <None Remove="Views\Icons\otworz.png" />
+    <None Remove="Views\Icons\pojazdy.png" />
+    <None Remove="Views\Icons\printer.png" />
+    <None Remove="Views\Icons\salon.png" />
+    <None Remove="Views\Icons\sciagnij.png" />
+    <None Remove="Views\Icons\shield.png" />
+    <None Remove="Views\Icons\terminal.png" />
+    <None Remove="Views\Icons\tesla-black.png" />
+    <None Remove="Views\Icons\tesla-kolor.png" />
+    <None Remove="Views\Icons\tworcy.png" />
+    <None Remove="Views\Icons\ustawienia.png" />
+    <None Remove="Views\Icons\wersja.png" />
+    <None Remove="Views\Icons\wifi.png" />
+    <None Remove="Views\Icons\wklej.png" />
+    <None Remove="Views\Icons\wyjscie.png" />
+    <None Remove="Views\Icons\wyniki.png" />
+    <None Remove="Views\Icons\wytnij.png" />
+    <None Remove="Views\Icons\zapisz.png" />
+    <None Remove="Views\Icons\zapisz_jako.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Icons\baza.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\books-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\books-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\calendar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\caly_ekran.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\cars-back.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\cars-white.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\clipboard.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\cofnij.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\delete.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\docs-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\docs-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\dodaj_insurance.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\dodanie_auta.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\dodawanie.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\dom.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\download.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\email.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\exit.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\export-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\export-pdf.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\export.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\faktury.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\faq.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\help.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\insurance-one.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\insurance.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\kalendarz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\klienci-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\klienci-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\klienci.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\klient-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\klient-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\komputer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\kopiuj.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\ksiegowosc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\login.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\logout.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\medal-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\medal-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\medals-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\medals-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\modify.png" />
+    <Resource Include="Views\Icons\nastepny.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\nowosci.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\nowy.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\odswierz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\otworz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\pojazdy.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\printer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\salon.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\sciagnij.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\shield.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\terminal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\tesla-black.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\tesla-kolor.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\tworcy.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\ustawienia.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wersja.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wifi.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wklej.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wyjscie.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wyniki.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\wytnij.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\zapisz.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Icons\zapisz_jako.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\NowyKontrahentView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WszystkieSamochodyView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\NowyKontrahentView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WszystkieSamochodyView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

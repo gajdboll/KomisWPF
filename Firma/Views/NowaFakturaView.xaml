@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="Komis.Views.NowaFakturaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Komis.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source=" StyleZakladekResources.xaml"/>
+    </UserControl.Resources>
+
+    <Grid Background="#53565B" Grid.IsSharedSizeScope="True">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Expander Header="Ogolne" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="350"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content=" Data" HorizontalAlignment="Right" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxStandardowy}"/>
+                <Label Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Content="Magazyn" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="0" Grid.Column="3" Style="{StaticResource ComboBoxStandardowy}"/>
+                <Label Grid.Row="0" Grid.Column="4" Content="Kontrahent" HorizontalAlignment="Right" Style="{StaticResource LabelStandardowy}"/>
+                <ComboBox Grid.Row="0" Grid.Column="5" Style="{StaticResource ComboBoxStandardowy}"/>
+
+            </Grid>
+        </Expander>
+        <Expander Grid.Row="1" Header="Pozycje" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1180"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid >
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn Header="Lp" Width="40" />
+                        <DataGridTextColumn Header ="Towar" Width="150" />
+                        <DataGridTextColumn Header ="Ilosc" Width="130"/>
+                        <DataGridTextColumn Header ="Cena" Width="130" Binding ="{Binding Path = Cena, StringFormat=C}"/>
+                        <DataGridTextColumn Header ="Rabat" Width="120" Binding ="{Binding Path = Rabat, StringFormat=C}"/>
+                        <DataGridTextColumn Header ="Cena po rabacie" Width="130" Binding ="{Binding Path = CenaPoRabacie, StringFormat=C}"/>
+                        <DataGridTextColumn Header ="Wartosc" Width="130" Binding ="{Binding Path = Wartosc, StringFormat=C}"/>
+                        <DataGridTextColumn Header ="St. VAT" Width="70"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Expander>
+        <Expander Grid.Row="2" Header=" Wartosci" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="560"/>
+
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Row="0" Grid.Column="0" Content="Dostepne:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="2" Content ="Rabat %:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="4" Content ="Netto:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="0" Grid.Column="5" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="1" Grid.Column="0" Content ="Po terminie:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="1" Grid.Column="2" Content ="Kwota rabatu:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="1" Grid.Column="4" Content ="VAT:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="1" Grid.Column="5" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="1" Grid.Column="6" Content ="Wartosc:" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="1" Grid.Column="7" Style="{StaticResource TextBoxFirma}"/>
+            </Grid>
+
+        </Expander>
+
+        <Expander Grid.Row="3" Header="Pierwsza Platnosc" IsExpanded="True" Foreground="FloralWhite" FontStyle="Oblique">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="100"/>
+
+
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Forma:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}"/>
+                <ComboBox  Grid.Row="0" Grid.Column="1" Style="{StaticResource ComboBoxFirma}"/>
+                <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource ComboBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="3" Content ="Termin (dni):" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="0" Grid.Column="4" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="5" Content ="Termin:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <ComboBox Grid.Row="0" Grid.Column="6" Style="{StaticResource ComboBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="7" Content ="Raty:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="0" Grid.Column="8" Style="{StaticResource TextBoxFirma}"/>
+                <Label Grid.Row="0" Grid.Column="9" Content ="Kwota:" HorizontalAlignment="Left" Style="{StaticResource Label Standardowy2}" />
+                <TextBox Grid.Row="0" Grid.Column="10" Text ="0.00 PLN" Width="100" Style="{StaticResource TextBoxFirma}"/>
+
+                <Button Grid.Row="1" Grid.Column="9" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource ButtonStandardowy}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5" />
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Views/Icons/dodawanie.png" Width="15" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBlock Margin="5,0">Dodaj Fakture</TextBlock>
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+        </Expander>
+
+    </Grid>
+</UserControl>
